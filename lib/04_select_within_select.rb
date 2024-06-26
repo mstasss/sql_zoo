@@ -100,7 +100,7 @@ def population_constraint
     SELECT
       name, population
     FROM
-      countries
+      councountries
     WHERE
       population > (
     SELECT 
@@ -127,19 +127,19 @@ def sparse_continents
       SELECT 
       name, continent, population
       FROM
-        world
+        countries
       WHERE 
         continent IN (
           SELECT 
             continent
           FROM
-            world x
+            countries x
           WHERE
             25000000 > ALL(
                 SELECT 
                   population
                 FROM
-                  world y 
+                  countries y 
                 WHERE 
                   x.continent = y.continent
                 ))
